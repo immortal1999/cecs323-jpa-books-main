@@ -21,6 +21,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 /**
@@ -62,7 +63,32 @@ public class Books {
       LOGGER.fine("Creating EntityManagerFactory and EntityManager");
       EntityManagerFactory factory = Persistence.createEntityManagerFactory("Books");
       EntityManager manager = factory.createEntityManager();
-      // Create an instance of CarClub and store our new EntityManager as an instance variable.
+      // Create an instance of Book and store our new EntityManager as an instance variable.
+      Books books = new Books(manager);
+      LOGGER.fine("Begin of Transaction");
+      EntityTransaction tx = manager.getTransaction();
+
+      tx.begin();
+      List<Authorings> authorings = new ArrayList<~>();
+
+      books.createEntity(authorings);
+      List<IndividualAuthors> idvAuthors = new ArrayList<~>();
+
+      books.createEntity(idvAuthors);
+      List<WritingGroups> writingGrp = new ArrayList<~>();
+
+      books.createEntity(writingGrp);
+      List<AdHocTeams> adHocTeams = new Arraylist<~>();
+
+      books.createEntity(adHocTeams);
+      List<AdHocTeamMembers> adHocMems = new ArrayList<~>();
+
+      books.createEntity(adHocMems);
+
+      prompts();
+      tx.commit();
+
+
 //      Books carclub = new Books(manager);
 //
 //
@@ -88,6 +114,31 @@ public class Books {
       LOGGER.fine("End of Transaction");
 
    } // End of the main method
+
+   public void prompts() {
+      System.out.println("Add new objects");
+      System.out.println("List all the information about a specific Object:");
+      System.out.println("Add new objects");
+      System.out.println("Add new objects");
+      Scanner input = new Scanner(System.in);
+      int choice = Integer.parseInt(input);
+      switch(choice)
+      {
+         case 1: {
+            input = new Scanner(System.in);
+            int subChoice = Integer.parseInt(input);
+            switch(subChoice){
+            case 1: System.out.println("Add a Writing Group");
+               break;
+            case 2: System.out.println("Add an Individual Author");
+               break;
+            case 3: System.out.println("Add an Ad Hoc Team");
+               break;
+            }
+         }
+
+      }
+   }
 
    /**
     * Create and persist a list of objects to the database.
