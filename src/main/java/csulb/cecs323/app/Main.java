@@ -87,6 +87,35 @@ public class Main {
 
    } // End of the main method
 
+<<<<<<< Updated upstream:src/main/java/csulb/cecs323/app/Main.java
+=======
+   public void prompts() {
+      System.out.println("1. Add new objects");
+      System.out.println("2. List all the information about a specific Object:");
+      System.out.println("3. Delete a book");
+      System.out.println("4. Update a book");
+      System.out.println("5. List the primary keys of:");
+      Scanner input = new Scanner(System.in);
+      int choice = Integer.parseInt(input.next());
+      switch(choice)
+      {
+         case 1: {
+            input = new Scanner(System.in);
+            int subChoice = Integer.parseInt(input.next());
+            switch(subChoice){
+            case 1: System.out.println("Add a Writing Group");
+               break;
+            case 2: System.out.println("Add an Individual Author");
+               break;
+            case 3: System.out.println("Add an Ad Hoc Team");
+               break;
+            }
+         }
+
+      }
+   }
+
+>>>>>>> Stashed changes:src/main/java/csulb/cecs323/app/Books.java
    /**
     * Create and persist a list of objects to the database.
     * @param entities   The list of entities to persist.  These can be any object that has been
